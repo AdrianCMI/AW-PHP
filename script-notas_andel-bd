@@ -1,0 +1,39 @@
+<?php
+
+    $host = ("localhost");
+    $user = ("root");
+    $password = ("");
+
+
+    $enlace = new mysqli("localhost", "root", "");
+    if(!$enlace) {
+        echo ("Error en la conexión a " . $host . ".");
+    } else {
+        echo ("Conexión establecida a " . $host . ".");
+    }
+
+    $sql = ("CREATE DATABASE notas_andel");
+    if($enlace->query($sql)) {;
+        echo ("Base de datos creada.");
+    } else {
+        echo ("Error en la creación en la base de datos.");
+    }
+
+    $enlace2 = new mysqli("localhost", "root", "", "notas_andel");
+
+    $tablasql = ("CREATE TABLE smir2 (
+        num_alumno INT(21) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        nombre_alumno VARCHAR(21) NOT NULL,
+        SOR INT(21) NOT NULL,
+        SER INT(21) NOT NULL,
+        SI INT(21) NOT NULL,
+        AW INT(21) NOT NULL,
+        EIE INT(21) NOT NULL,
+        INGLÉS INT(21) NOT NULL,
+        )");
+    if($enlace2->query($tablasql)) {;
+        echo ("Tabla creada.");
+    } else {
+        echo ("Error en la creación de la tabla.");
+    }
+?>
